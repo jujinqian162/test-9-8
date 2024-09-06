@@ -31,7 +31,7 @@ set_target_properties(func
     PROPERTIES 
     LANGUAGE CXX
 )
-
+include(CMakePackageConfigHelpers)
 # set install path:
 #SET(CMAKE_INSTALL_PREFIX ${PROJECT_SOURCE_DIR}/install)
 target_include_directories(func PUBLIC
