@@ -27,6 +27,7 @@ add_library(func
 #                           SHARED
                             ${LIB_SRC}
 )
+add_library(func::func ALIAS func)
 set_target_properties(func 
     PROPERTIES 
     LANGUAGE CXX
