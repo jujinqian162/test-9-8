@@ -36,7 +36,7 @@ include(CMakePackageConfigHelpers)
 # set install path:
 #SET(CMAKE_INSTALL_PREFIX ${PROJECT_SOURCE_DIR}/install)
 target_include_directories(func PUBLIC
-    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/func>
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:include>
 )
 # set_target_properties(func PROPERTIES PUBLIC_HEADER "func/lib2.h")
