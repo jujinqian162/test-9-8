@@ -20,7 +20,7 @@ endif()
 
 project(func)
 
-file(GLOB LIB_SRC src/*.cpp func/*.h)
+file(GLOB LIB_SRC src/*.cpp include/func/*.h)
 
 add_library(func 
                             STATIC 
@@ -35,7 +35,7 @@ set_target_properties(func
 # set install path:
 #SET(CMAKE_INSTALL_PREFIX ${PROJECT_SOURCE_DIR}/install)
 target_include_directories(func PUBLIC
-    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/func>
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/func>
     $<INSTALL_INTERFACE:include>
 )
 # set_target_properties(func PROPERTIES PUBLIC_HEADER "func/lib2.h")
