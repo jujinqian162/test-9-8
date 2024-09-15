@@ -13,18 +13,25 @@ if(CMAKE_BUILD_TYPE STREQUAL Debug)
     add_compile_definitions(DEBUG)
 endif()
 project(func_test)
-
-find_package(Catch2)
-
-if (NOT Catch2_FOUND)
-    include(FetchContent)
-    FetchContent_Declare(
-        Catch2 
-        GIT_REPOSITORY https://github.com/catchorg/Catch2.git
-        GIT_TAG devel 
-    )  
-    FetchContent_MakeAvailable(Catch2)
+if(IS_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/Catch2)
+    message(STATUS "Has Catch2 submodule")
+    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/Catch2)
+else()
+    message(STATUS "No Catch2 submodule")
+    find_package(Catch2)
+    if (NOT Catch2_FOUND)
+        message(STATUS "No Catch2 install, is fetching...")
+        include(FetchContent)
+        FetchContent_Declare(
+            Catch2 
+            GIT_REPOSITORY https://github.com/catchorg/Catch2.git
+            GIT_TAG devel 
+        )  
+        FetchContent_MakeAvailable(Catch2)
+    endif()
 endif()
+
+
 
 message(STATUS "dir: " ${CMAKE_SOURCE_DIR})
 
